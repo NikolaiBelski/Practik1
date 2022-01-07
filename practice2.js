@@ -18,39 +18,41 @@
 // Код возьмите из предыдущего домашнего задания
 let numberOfFilms = +prompt("Watt you see films?", "");*/
 
+
 'use strict';
 
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+let numberFilm = +prompt('Сколько фильмов вы посмотрели?', '');
 
-const personalMovieDB = {
-    count: numberOfFilms,
+let persFilmbase = {
+    count: numberFilm,
     movies: {},
     actors: {},
     genres: [],
     privat: false
 };
-
-for (let i = 0; i < 2; i++) {
-    const a = prompt('Один из последних просмотренных фильмов?', ''),
-        b = prompt('На сколько оцените его?', '');
+for (let i = 1; i < 3; i++) {
+    let a = prompt('Последний фильм?', ''),
+        b = prompt('Какая оценка?', '');
 
     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-        personalMovieDB.movies[a] = b;
-        console.log('done');
+
+        persFilmbase.movies[a] = b;
+        console.log('Все прекрасно');
+
     } else {
-        console.log('error');
+        console.log('Ошибка');
         i--;
     }
+
 }
 
-if (personalMovieDB.count < 10) {
-    console.log("Просмотрено довольно мало фильмов");
-} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-    console.log("Вы классический зритель");
-} else if (personalMovieDB.count >= 30) {
-    console.log("Вы киноман");
+if (persFilmbase.count < 10) {
+    console.log('Просмотрено мало фильмов');
+} else if (persFilmbase.count >= 10 && persFilmbase.count <= 30) {
+    console.log('Неплохо, малыш');
+} else if (persFilmbase.count > 30) {
+    console.log('Ты монстр');
 } else {
-    console.log("Произошла ошибка");
+    console.log('Сколько раз пытался, все никак');
 }
-
-console.log(personalMovieDB);
+console.log(persFilmbase);
